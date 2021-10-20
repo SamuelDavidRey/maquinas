@@ -5,12 +5,11 @@
  */
 package com.rentamaquina.maquinaria.app.controllers;
 
-import com.rentamaquina.maquinaria.app.entities.Client;
-import com.rentamaquina.maquinaria.app.services.ClientService;
+import com.rentamaquina.maquinaria.app.entities.Admin;
+import com.rentamaquina.maquinaria.app.services.AdminService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,28 +26,27 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("Client")
-public class ClientController {
-    @Autowired
-    private ClientService service;
+@RequestMapping("Admin")
+public class AdminController {
+     @Autowired
+    private AdminService service;
     
     @GetMapping("/all")
-    public List<Client> getClients(){
+    public List<Admin> getAdmins(){
         return service.getAll();
     }
    @PostMapping("/save")
    @ResponseStatus(HttpStatus.CREATED)
-   public Client save(@RequestBody Client client){
-       return service.save(client);
+   public Admin save(@RequestBody Admin admin){
+       return service.save(admin);
    }
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client update(@RequestBody Client client){
-       return service.update(client);
+    public Admin update(@RequestBody Admin admin){
+       return service.update(admin);
    } 
   @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable("id") int clientId) {
-        return service.deleteClient(clientId);
+    public boolean delete(@PathVariable("id") int adminId) {
+        return service.deleteAdmin(adminId);
     }
-
 }

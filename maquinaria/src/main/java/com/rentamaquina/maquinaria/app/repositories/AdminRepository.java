@@ -6,8 +6,10 @@
 package com.rentamaquina.maquinaria.app.repositories;
 
 import com.rentamaquina.maquinaria.app.entities.Admin;
+import com.rentamaquina.maquinaria.app.entities.Admin;
 import com.rentamaquina.maquinaria.app.repositories.crud.AdminCrudRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -27,8 +29,20 @@ public class AdminRepository {
      return (List<Admin>) adminCrudRepository.findAll();
  }
  
- public Admin saveCategory(Admin admin){
+ public Admin saveAdmin(Admin admin){
      return adminCrudRepository.save(admin);
  } 
+    public Admin save(Admin admin){
+        return adminCrudRepository.save(admin);
+    }
+    
+    //pendiente idadmin
+    public Optional<Admin> getAdmin(int idAdmin){
+        return adminCrudRepository.findById(idAdmin);
+    }
 
+    
+    public void delete(Admin admin){
+        adminCrudRepository.delete(admin);
+    }
 }

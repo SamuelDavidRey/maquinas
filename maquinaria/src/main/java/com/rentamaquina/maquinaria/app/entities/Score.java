@@ -30,7 +30,7 @@ public class Score implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int idScore;
+    private Integer idScore;
      private String messageText;
     private Integer stars;
 

@@ -28,7 +28,7 @@ import javax.persistence.ManyToOne;
 public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int idMessage;
+    private Integer idMessage;
     private String messageText;
  @ManyToOne
     @JoinColumn(name ="machineId")

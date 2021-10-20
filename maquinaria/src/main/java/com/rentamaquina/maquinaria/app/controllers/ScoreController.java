@@ -5,12 +5,11 @@
  */
 package com.rentamaquina.maquinaria.app.controllers;
 
-import com.rentamaquina.maquinaria.app.entities.Client;
-import com.rentamaquina.maquinaria.app.services.ClientService;
+import com.rentamaquina.maquinaria.app.entities.Score;
+import com.rentamaquina.maquinaria.app.services.ScoreService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,30 +24,29 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author VALERIA BENITEZ
  */
-
 @RestController
-@RequestMapping("Client")
-public class ClientController {
-    @Autowired
-    private ClientService service;
+@RequestMapping("Score")
+public class ScoreController {
+     @Autowired
+    private ScoreService service;
     
     @GetMapping("/all")
-    public List<Client> getClients(){
+    public List<Score> getScores(){
         return service.getAll();
     }
    @PostMapping("/save")
    @ResponseStatus(HttpStatus.CREATED)
-   public Client save(@RequestBody Client client){
-       return service.save(client);
+   public Score save(@RequestBody Score score){
+       return service.save(score);
    }
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client update(@RequestBody Client client){
-       return service.update(client);
+    public Score update(@RequestBody Score score){
+       return service.update(score);
    } 
   @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable("id") int clientId) {
-        return service.deleteClient(clientId);
+    public boolean delete(@PathVariable("id") int scoreId) {
+        return service.deleteScore(scoreId);
     }
 
 }

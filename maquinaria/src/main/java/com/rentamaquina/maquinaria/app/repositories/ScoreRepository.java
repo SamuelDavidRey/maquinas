@@ -6,8 +6,10 @@
 package com.rentamaquina.maquinaria.app.repositories;
 
 import com.rentamaquina.maquinaria.app.entities.Score;
+import com.rentamaquina.maquinaria.app.entities.Score;
 import com.rentamaquina.maquinaria.app.repositories.crud.ScoreCrudRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -26,4 +28,18 @@ public class ScoreRepository {
  public List<Score> getAll(){
      return (List<Score>) scoreCrudRepository.findAll();
  }
+ public Score saveScore(Score score){
+     return scoreCrudRepository.save(score);
+ } 
+ public Score save(Score score){
+        return scoreCrudRepository.save(score);
+    }
+  public Optional<Score> getScore(int scoreId){
+        return scoreCrudRepository.findById(scoreId);
+    }
+
+    
+    public void delete(Score score){
+        scoreCrudRepository.delete(score);
+    }
 }
